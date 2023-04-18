@@ -59,3 +59,15 @@ if __name__ == "__main__":
     plt.legend(loc="lower center", bbox_to_anchor= [0.5, 1], ncol=2, fontsize="smaller")
     plt.tight_layout()
     plt.show()
+
+    # FIR Filter
+    nyq_rate = fs / 2.0
+    x_filtered_fir,_,_ = fir_filter(x_noise, fs, fc)
+    plt.figure(figsize= (12, 5))
+    plt.plot(ts, x_noise, label="Raw signal")
+    plt.plot(ts, x_filtered_fir, alpha=0.8, lw=3, label="FIR filter")
+    plt.xlabel ("Time / s")
+    plt.ylabel ("Amplitude")
+    plt. legend (loc="lower center", bbox_to_anchor= [0.5, 1], ncol=2,fontsize="smaller")
+    plt.tight_layout()
+    plt.show()
